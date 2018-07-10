@@ -32,7 +32,6 @@ ENV BUILD_DOCKER_GROUP docker
 ENV BUILD_DOCKER_GROUP_ID 1001
 
 ENV HOME /home/${user}
-RUN groupadd -g ${gid} ${group}
 RUN useradd -c "Jenkins user" -d $HOME -u ${uid} -g ${gid} -m ${user}
 LABEL Description="This is a base image, which provides the Jenkins agent executable (slave.jar)" Vendor="Jenkins project" Version="3.20"
 
