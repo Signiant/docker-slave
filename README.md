@@ -1,10 +1,6 @@
 Jenkins Agent Docker image
 ===
 
-[![Docker Stars](https://img.shields.io/docker/stars/jenkinsci/slave.svg)](https://hub.docker.com/r/jenkinsci/slave/)
-[![Docker Pulls](https://img.shields.io/docker/pulls/jenkinsci/slave.svg)](https://hub.docker.com/r/jenkinsci/slave/)
-[![Docker Automated build](https://img.shields.io/docker/automated/jenkinsci/slave.svg)](https://hub.docker.com/r/jenkinsci/slave/)
-
 This is a base image for Docker, which includes OpenJDK 8 and the Jenkins agent executable (slave.jar).
 This executable is an instance of the [Jenkins Remoting library](https://github.com/jenkinsci/remoting).
 
@@ -23,7 +19,7 @@ after setting **Remote root directory** to `/home/jenkins/agent`.
 
 ### Agent Work Directories
 
-Starting from [Remoting 3.8](https://github.com/jenkinsci/remoting/blob/master/CHANGELOG.md#38) there is a support of Work directories, 
+Starting from [Remoting 3.8](https://github.com/jenkinsci/remoting/blob/master/CHANGELOG.md#38) there is a support of Work directories,
 which provides logging by default and change the JAR Caching behavior.
 
 Call example:
