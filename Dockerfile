@@ -23,15 +23,13 @@
 FROM openjdk:8-jdk
 MAINTAINER Signiant DevOps <devops@signiant.com>
 
-ARG user=bldmgr
-ARG group=users
-ARG uid=10012
-ARG gid=100
-
-ENV BUILD_DOCKER_GROUP docker
-ENV BUILD_DOCKER_GROUP_ID 1001
+ARG user=jenkins
+ARG group=jenkins
+ARG uid=10000
+ARG gid=10000
 
 ENV HOME /home/${user}
+RUN groupadd -g ${gid} ${group}
 RUN useradd -c "Jenkins user" -d $HOME -u ${uid} -g ${gid} -m ${user}
 LABEL Description="This is a base image, which provides the Jenkins agent executable (slave.jar)" Vendor="Jenkins project" Version="3.20"
 
