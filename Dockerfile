@@ -89,14 +89,15 @@ RUN curl --create-dirs -sSLo /usr/share/jenkins/slave.jar https://repo.jenkins-c
 
 # Create the folder we use for Jenkins workspaces across all nodes
 RUN mkdir -p /var/lib/jenkins \
-  && chown -R ${user}:$group /var/lib/jenkins
+  && chown -R ${user}:${group} /var/lib/jenkins
 
 COPY jenkins-slave /usr/local/bin/jenkins-slave
 RUN chmod +x /usr/local/bin/jenkins-slave
-RUN mkdir /home/${user}/.jenkins && chown -R ${user}:$group /home/${user}/.jenkins
+RUN mkdir /home/${user}/.jenkins && chown -R ${user}:${group} /home/${user}/.jenkins \
+  && mkdir /home/${user}/workspace && chown -R ${user}:${group} /home/${user}/workspace
 
-USER ${user}
-VOLUME /home/${user}/.jenkins
+#USER ${user}
+#VOLUME /home/${user}/.jenkins
 WORKDIR /home/${user}
 
 ENTRYPOINT ["/usr/local/bin/jenkins-slave"]
