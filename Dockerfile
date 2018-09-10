@@ -78,8 +78,8 @@ RUN wget --no-verbose https://s3.amazonaws.com/file-system-agent/whitesource-fs-
 COPY jenkins_nodes /home/${user}/jenkins_nodes
 
 ENV HOME /home/${user}
-RUN useradd -c "Jenkins user" -d $HOME -u ${uid} -g ${gid} -m ${user} \
-  && usermod -a -G ${BUILD_DOCKER_GROUP} ${user}
+RUN useradd -c "Jenkins user" -d $HOME -u ${uid} -g ${gid} -m ${user}
+RUN usermod -a -G ${BUILD_DOCKER_GROUP} ${user}
 LABEL Description="This is a base image, which provides the Jenkins agent executable (slave.jar)" Vendor="Jenkins project" Version="3.20"
 ARG VERSION=3.20
 
