@@ -24,4 +24,9 @@ nodejs
 wget
 make
 yarn
+apt-transport-https
+ca-certificates
+curl
+gnupg2
+software-properties-common
 docker-compose

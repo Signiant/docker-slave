@@ -40,6 +40,14 @@ RUN apt-get update \
     && apt-get install -y `cat /tmp/apt-get-packages.list` \
     && easy_install pip==7.1.2
 
+#Setup Docker CE
+RUN curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add -
+RUN add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
+   $(lsb_release -cs) \
+   stable"
+RUN apt-get update && apt-get install docker-ce
+
 # Setup build environment / tools
 ENV NPM_VERSION latest-2
 ENV FINDBUGS_VERSION 2.0.3
